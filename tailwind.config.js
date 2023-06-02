@@ -7,6 +7,9 @@ module.exports = {
         body: ["Lato", "sans-serif"],
         header: ["Open Sans", "sans-serif"],
       },
+      colors: {
+        custom: "#0d102e",
+      },
     },
   },
   plugins: [],
