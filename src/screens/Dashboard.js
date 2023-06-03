@@ -17,7 +17,7 @@ const Dashboard = () => {
     // sidebar navigation menu
     <div className="w-full mx-auto h-96 flex">
       <div
-        className={`side-bar w-1/5 h-screen font-header bg-gradient-to-b to-slate-800 from-blue-950 text-slate-100 space-y-2 ${
+        className={`side-bar w-1/5 h-screen font-header bg-gradient-to-b to-slate-50 from-slate-100 bg-slate-100 text-slate-950 space-y-2 ${
           !isOpen && "w-fit px-6"
         } transition-all ease-in-out duration-300`}
       >
@@ -35,21 +35,21 @@ const Dashboard = () => {
 
         {/* sidebar menu items */}
         <div
-          className={`item w-11/12 mx-auto bg-blue-900 p-3 rounded-lg flex cursor-pointer ${
-            !isOpen && "bg-slate-50 rounded-full text-amber-500 w-fit"
+          className={`item w-11/12 mx-auto bg-blue-600 p-3 rounded-lg flex cursor-pointer ${
+            !isOpen && "bg-blue-600 rounded-full text-amber-600 w-fit"
           }`}
         >
           <span
-            className={`material-symbols-rounded mr-2 text-amber-500 ${
+            className={`material-symbols-rounded mr-2 text-amber-600 ${
               !isOpen && "w-6 h-6 mr-0"
             }`}
           >
             dashboard
           </span>
-          <p className={`${!isOpen && "hidden"}`}>Dashboard</p>
+          <p className={`${!isOpen && "hidden"} text-slate-50`}>Dashboard</p>
         </div>
         <div
-          className={`item w-11/12 mx-auto text-slate-300 p-3 rounded-lg flex cursor-pointer hover:text-amber-500 ${
+          className={`item w-11/12 mx-auto text-slate-950 p-3 rounded-lg flex cursor-pointer hover:text-amber-600 ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
@@ -77,20 +77,20 @@ const Dashboard = () => {
           </div>
         </div>
         {isDropdownOpen && (
-          <div className="block mt-2 pl-16 bg-blue-900">
-            <a href="#" className=" py-2 text-gray-300 hover:text-white flex">
+          <div className="block mt-2 pl-16 bg-blue-600">
+            <a href="#" className=" py-2 text-slate-50 hover:text-white flex">
               <p className="text-amber-500 pr-2">•</p>Option 1
             </a>
-            <a href="#" className=" py-2 text-gray-300 hover:text-white flex">
+            <a href="#" className=" py-2 text-slate-50 hover:text-white flex">
               <p className="text-amber-500 pr-2">•</p>Option 2
             </a>
-            <a href="#" className=" py-2 text-gray-300 hover:text-white flex">
+            <a href="#" className=" py-2 text-slate-50 hover:text-white flex">
               <p className="text-amber-500 pr-2">•</p>Option 3
             </a>
           </div>
         )}
         <div
-          className={`item w-11/12 mx-auto text-slate-300 p-3 rounded-lg flex cursor-pointer hover:text-amber-500 transition delay-75 ease-in-out ${
+          className={`item w-11/12 mx-auto text-slate-950 p-3 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
