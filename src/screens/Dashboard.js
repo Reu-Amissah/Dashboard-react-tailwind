@@ -3,16 +3,21 @@ import logo from "../assets/226411.png";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   function closeSidebar() {
     setIsOpen(!isOpen);
+  }
+
+  function handledropdown() {
+    setIsDropdownOpen(!isDropdownOpen);
   }
 
   return (
     // sidebar navigation menu
     <div className="w-full mx-auto h-96 flex">
       <div
-        className={`side-bar w-1/5 h-screen font-header bg-slate-800 text-slate-100 space-y-2 ${
+        className={`side-bar w-1/5 h-screen font-header bg-gradient-to-b to-slate-800 from-blue-950 text-slate-100 space-y-2 ${
           !isOpen && "w-fit px-6"
         } transition-all ease-in-out duration-300`}
       >
@@ -30,12 +35,12 @@ const Dashboard = () => {
 
         {/* sidebar menu items */}
         <div
-          className={`item w-11/12 mx-auto bg-slate-700 p-3 rounded-lg flex cursor-pointer ${
-            !isOpen && "bg-slate-50 rounded-full text-slate-700 w-fit"
+          className={`item w-11/12 mx-auto bg-blue-900 p-3 rounded-lg flex cursor-pointer ${
+            !isOpen && "bg-slate-50 rounded-full text-amber-500 w-fit"
           }`}
         >
           <span
-            className={`material-symbols-rounded mr-2 ${
+            className={`material-symbols-rounded mr-2 text-amber-500 ${
               !isOpen && "w-6 h-6 mr-0"
             }`}
           >
@@ -44,7 +49,7 @@ const Dashboard = () => {
           <p className={`${!isOpen && "hidden"}`}>Dashboard</p>
         </div>
         <div
-          className={`item w-11/12 mx-auto text-slate-300 p-3 rounded-lg flex cursor-pointer hover:bg-slate-700 hover:text-cyan-500 ${
+          className={`item w-11/12 mx-auto text-slate-300 p-3 rounded-lg flex cursor-pointer hover:text-amber-500 ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
@@ -55,10 +60,37 @@ const Dashboard = () => {
           >
             domain
           </span>
-          <p className={`${!isOpen && "hidden"}`}>Departments</p>
+          <div
+            className={`w-full flex justify-between align-middle  ${
+              !isOpen && "hidden"
+            }`}
+            onClick={handledropdown}
+          >
+            <p>Departments</p>
+            <span
+              className={`material-symbols-rounded ${
+                isDropdownOpen && "rotate-180"
+              }`}
+            >
+              expand_more
+            </span>
+          </div>
         </div>
+        {isDropdownOpen && (
+          <div className="block mt-2 pl-16 bg-blue-900">
+            <a href="#" className=" py-2 text-gray-300 hover:text-white flex">
+              <p className="text-amber-500 pr-2">•</p>Option 1
+            </a>
+            <a href="#" className=" py-2 text-gray-300 hover:text-white flex">
+              <p className="text-amber-500 pr-2">•</p>Option 2
+            </a>
+            <a href="#" className=" py-2 text-gray-300 hover:text-white flex">
+              <p className="text-amber-500 pr-2">•</p>Option 3
+            </a>
+          </div>
+        )}
         <div
-          className={`item w-11/12 mx-auto text-slate-300 p-3 rounded-lg flex cursor-pointer hover:bg-slate-700 hover:text-cyan-500 transition delay-75 ease-in-out ${
+          className={`item w-11/12 mx-auto text-slate-300 p-3 rounded-lg flex cursor-pointer hover:text-amber-500 transition delay-75 ease-in-out ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
@@ -74,7 +106,11 @@ const Dashboard = () => {
         {/* sidebar items end */}
       </div>
 
-      <div className={`pages w-4/5 ${!isOpen && "w-full"}`}>
+      <div
+        className={`pages w-4/5 ${
+          !isOpen && "w-full"
+        } transition-all ease-in-out duration-300`}
+      >
         <div
           className={`nav-bar sticky top-0 font-header bg-blue-300 ${
             !isOpen && "w-full"
