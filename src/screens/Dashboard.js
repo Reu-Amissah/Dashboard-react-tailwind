@@ -106,19 +106,86 @@ const Dashboard = () => {
         {/* sidebar items end */}
       </div>
 
+      {/* main page layout */}
       <div
-        className={`pages w-4/5 ${
+        className={`pages w-4/5 m-5 font-header ${
           !isOpen && "w-full"
         } transition-all ease-in-out duration-300`}
       >
-        <div
-          className={`nav-bar sticky top-0 font-header bg-blue-300 ${
-            !isOpen && "w-full"
-          }`}
-        >
-          navbar
+        <div className={`sticky top-0 font-header ${!isOpen && "w-full"} mb-5`}>
+          Lorem, ipsum dolor
         </div>
+
+        {/* statistics value components  */}
+        <div className="w-full flex justify-between space-x-4">
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-amber-50 space-y-1">
+            <div className="flex align-middle text-sm text-slate-400">
+              <span class="material-symbols-rounded pr-2">payments</span>
+              <p>Transactions</p>
+            </div>
+            <div className="text-blue-900 text-3xl">524,000</div>
+            <div className="flex align-middle text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-1 text-green-500">
+                trending_up
+              </span>
+              <p className="text-green-500 pr-1">3.5% </p>
+              <p> vs 3 weeks report</p>
+            </div>
+          </div>
+
+          {/* item 2 */}
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-indigo-50 space-y-1">
+            <div className="flex align-middle text-sm text-slate-400">
+              <span class="material-symbols-rounded pr-2">payments</span>
+              <p>Transactions</p>
+            </div>
+            <div className="text-blue-900 text-3xl">524,000</div>
+            <div className="flex align-middle text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-1 text-green-500">
+                trending_up
+              </span>
+              <p className="text-green-500 pr-1">3.5% </p>
+              <p> vs 3 weeks report</p>
+            </div>
+          </div>
+
+          {/* item 3 */}
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-lime-50 space-y-1">
+            <div className="flex align-middle text-sm text-slate-400">
+              <span class="material-symbols-rounded pr-2">payments</span>
+              <p>Transactions</p>
+            </div>
+            <div className="text-blue-900 text-3xl">524,000</div>
+            <div className="flex align-middle text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-1 text-green-500">
+                trending_up
+              </span>
+              <p className="text-green-500 pr-1">3.5% </p>
+              <p> vs 3 weeks report</p>
+            </div>
+          </div>
+
+          {/* item 4 */}
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-rose-50 space-y-1">
+            <div className="flex align-middle text-sm text-slate-400">
+              <span class="material-symbols-rounded pr-2">payments</span>
+              <p>Transactions</p>
+            </div>
+            <div className="text-blue-900 text-3xl">524,000</div>
+            <div className="flex align-middle text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-1 text-green-500">
+                trending_up
+              </span>
+              <p className="text-green-500 pr-1">3.5% </p>
+              <p> vs 3 weeks report</p>
+            </div>
+          </div>
+        </div>
+
+        {/* graph illustration  */}
+        <div></div>
       </div>
+      {/* main page layout end  */}
     </div>
   );
 };
