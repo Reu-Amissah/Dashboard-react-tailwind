@@ -74,8 +74,14 @@ const Dashboard = () => {
         {/* sidebar items end */}
       </div>
 
-      <div className="pages w-4/5">
-        <div className="nav-bar sticky top-0 font-header">navbar</div>
+      <div className={`pages w-4/5 ${!isOpen && "w-full"}`}>
+        <div
+          className={`nav-bar sticky top-0 font-header bg-blue-300 ${
+            !isOpen && "w-full"
+          }`}
+        >
+          navbar
+        </div>
       </div>
     </div>
   );
