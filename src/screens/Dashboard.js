@@ -17,7 +17,7 @@ const Dashboard = () => {
     // sidebar navigation menu
     <div className="w-full mx-auto h-96 flex">
       <div
-        className={`side-bar w-1/5 h-screen font-header bg-gradient-to-b to-slate-50 from-slate-100 bg-slate-100 text-slate-950 space-y-2 ${
+        className={`side-bar w-1/5 h-screen font-header bg-gradient-to-b to-slate-50 from-slate-100 bg-slate-100 text-slate-950 space-y-1 ${
           !isOpen && "w-fit px-6"
         } transition-all ease-in-out duration-300`}
       >
