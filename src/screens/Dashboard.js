@@ -1,9 +1,30 @@
 import React, { useState } from "react";
 import logo from "../assets/226411.png";
+// import { Line } from "react-chartjs-2";
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  //   const data = {
+  //     labels: ["January", "February", "March", "April", "May", "June"],
+  //     datasets: [
+  //       {
+  //         label: "Data",
+  //         data: [12, 19, 3, 5, 2, 3],
+  //         fill: false,
+  //         borderColor: "rgba(75,192,192,1)",
+  //       },
+  //     ],
+  //   };
+
+  //   const options = {
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true,
+  //       },
+  //     },
+  //   };
 
   function closeSidebar() {
     setIsOpen(!isOpen);
@@ -17,7 +38,7 @@ const Dashboard = () => {
     // sidebar navigation menu
     <div className="w-full mx-auto h-96 flex">
       <div
-        className={`side-bar w-1/5 h-screen font-header bg-gradient-to-b to-slate-50 from-slate-100 bg-slate-100 text-slate-950 space-y-1 ${
+        className={`side-bar w-1/5 h-screen font-header bg-slate-100 text-slate-950 space-y-1 ${
           !isOpen && "w-fit px-6"
         } transition-all ease-in-out duration-300`}
       >
@@ -28,15 +49,19 @@ const Dashboard = () => {
           }`}
           onClick={closeSidebar}
         >
-          <img src={logo} className={`w-6 h-6 mr-2 ${!isOpen && "mr-0"}`}></img>
+          <img
+            src={logo}
+            className={`w-6 h-6 mr-2 ${!isOpen && "mr-0"}`}
+            alt="logo"
+          ></img>
           <p className={`${!isOpen && "hidden"}`}>Jiraiya's Dashy</p>
         </div>
         {/* sidebar logo end */}
 
         {/* sidebar menu items */}
         <div
-          className={`item w-11/12 mx-auto bg-blue-600 p-3 rounded-lg flex cursor-pointer ${
-            !isOpen && "bg-blue-600 rounded-full text-amber-600 w-fit"
+          className={`item w-11/12 mx-auto bg-blue-100 p-2 rounded-md flex cursor-pointer ${
+            !isOpen && "bg-blue-900 rounded-full text-amber-600"
           }`}
         >
           <span
@@ -46,10 +71,16 @@ const Dashboard = () => {
           >
             dashboard
           </span>
-          <p className={`${!isOpen && "hidden"} text-slate-50`}>Dashboard</p>
+          <p
+            className={` text-blue-900 font-semibold text-md ${
+              !isOpen && "hidden"
+            }`}
+          >
+            Dashboard
+          </p>
         </div>
         <div
-          className={`item w-11/12 mx-auto text-slate-950 p-3 rounded-lg flex cursor-pointer hover:text-amber-600 ${
+          className={`item w-11/12 mx-auto text-slate-950 p-2 rounded-lg flex cursor-pointer hover:text-amber-600 ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
@@ -77,20 +108,29 @@ const Dashboard = () => {
           </div>
         </div>
         {isDropdownOpen && (
-          <div className="block mt-2 pl-16 bg-blue-600">
-            <a href="#" className=" py-2 text-slate-50 hover:text-white flex">
+          <div className="block mt-2 pl-16 bg-slate-100 border-t-2 border-b-2 border-slate-200">
+            <a
+              href="_blank"
+              className=" py-2 text-slate-900 hover:text-slate-950 flex"
+            >
               <p className="text-amber-500 pr-2">•</p>Option 1
             </a>
-            <a href="#" className=" py-2 text-slate-50 hover:text-white flex">
+            <a
+              href="_blank"
+              className=" py-2 text-slate-900 hover:text-slate-950 flex"
+            >
               <p className="text-amber-500 pr-2">•</p>Option 2
             </a>
-            <a href="#" className=" py-2 text-slate-50 hover:text-white flex">
+            <a
+              href="_blank"
+              className=" py-2 text-slate-900 hover:text-slate-950 flex"
+            >
               <p className="text-amber-500 pr-2">•</p>Option 3
             </a>
           </div>
         )}
         <div
-          className={`item w-11/12 mx-auto text-slate-950 p-3 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
+          className={`item w-11/12 mx-auto text-slate-950 p-2 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
@@ -112,8 +152,12 @@ const Dashboard = () => {
           !isOpen && "w-full"
         } transition-all ease-in-out duration-300`}
       >
-        <div className={`sticky top-0 font-header ${!isOpen && "w-full"} mb-5`}>
-          Lorem, ipsum dolor
+        <div
+          className={`sticky top-0 font-header text-3xl text-blue-900 font-semibold ${
+            !isOpen && "w-full"
+          } mb-5`}
+        >
+          Dashboard
         </div>
 
         {/* statistics value components  */}
@@ -181,9 +225,6 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-
-        {/* graph illustration  */}
-        <div></div>
       </div>
       {/* main page layout end  */}
     </div>
