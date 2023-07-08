@@ -1,30 +1,99 @@
 import React, { useState } from "react";
 import logo from "../assets/226411.png";
-// import { Line } from "react-chartjs-2";
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  ArcElement,
+} from "chart.js";
+
+import { Doughnut } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+const options = {
+  responsive: true,
+  maintainAspectRatio: false,
+  // Other chart options
+};
+
+const labels = ["January", "February", "March", "April", "May", "June", "July"];
+
+export const Ddata = {
+  labels: ["Net Revenue", "Gross Income", "Marketing"],
+  datasets: [
+    {
+      data: [15, 5, 8],
+      backgroundColor: [
+        "rgba(255, 99, 132, 0.2)",
+        "rgba(54, 162, 235, 0.2)",
+        "rgba(255, 206, 86, 0.2)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+      ],
+    },
+  ],
+};
+
+export const Ldata = {
+  labels,
+  datasets: [
+    {
+      data: [35, 2, 10, 6, 2, 3, 70],
+      lineTension: 0.4,
+      pointRadius: 0,
+      // labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+  ],
+};
+
+export const data = {
+  labels,
+  datasets: [
+    {
+      label: "Patient",
+      data: [12, 19, 3, 5, 2, 3, 24],
+      lineTension: 0.4,
+      pointRadius: 0,
+      // labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
+      borderColor: "rgb(255, 99, 132)",
+      backgroundColor: "rgba(255, 99, 132, 0.5)",
+    },
+    {
+      label: "Appointment",
+      lineTension: 0.4,
+      pointRadius: 0,
+      data: [16, 20, 1, 1, 8, 9, 20],
+      borderColor: "rgb(53, 162, 235)",
+      backgroundColor: "rgba(53, 162, 235, 0.5)",
+    },
+  ],
+};
 
 const Dashboard = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
-  //   const data = {
-  //     labels: ["January", "February", "March", "April", "May", "June"],
-  //     datasets: [
-  //       {
-  //         label: "Data",
-  //         data: [12, 19, 3, 5, 2, 3],
-  //         fill: false,
-  //         borderColor: "rgba(75,192,192,1)",
-  //       },
-  //     ],
-  //   };
-
-  //   const options = {
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true,
-  //       },
-  //     },
-  //   };
 
   function closeSidebar() {
     setIsOpen(!isOpen);
@@ -58,15 +127,23 @@ const Dashboard = () => {
         </div>
         {/* sidebar logo end */}
 
+        <div
+          className={`w-11/12 mx-auto text-sm text-slate-400 font-semibold pb-2 ${
+            !isOpen && "flex justify-center"
+          }`}
+        >
+          MENU
+        </div>
         {/* sidebar menu items */}
         <div
-          className={`item w-11/12 mx-auto bg-blue-100 p-2 rounded-md flex cursor-pointer ${
-            !isOpen && "bg-blue-900 rounded-full text-amber-600"
+          className={`item  bg-blue-100 p-2 border-l-4 border-blue-900 flex cursor-pointer ${
+            !isOpen &&
+            "border-l-2 border-blue-900 rounded-none bg-inherit items-center justify-center"
           }`}
         >
           <span
-            className={`material-symbols-rounded mr-2 text-amber-600 ${
-              !isOpen && "w-6 h-6 mr-0"
+            className={`material-symbols-rounded mr-2 text-amber-600 ext-md ${
+              !isOpen && "mr-0"
             }`}
           >
             dashboard
@@ -80,13 +157,13 @@ const Dashboard = () => {
           </p>
         </div>
         <div
-          className={`item w-11/12 mx-auto text-slate-950 p-2 rounded-lg flex cursor-pointer hover:text-amber-600 ${
+          className={`item w-11/12 mx-auto text-slate-500 font-semibold p-2 rounded-lg flex cursor-pointer hover:text-amber-600 ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
           <span
-            className={`material-symbols-rounded mr-2 ${
-              !isOpen && "w-6 h-6 mr-0"
+            className={`material-symbols-rounded mr-2 text-md ${
+              !isOpen && "mr-0"
             }`}
           >
             domain
@@ -130,18 +207,40 @@ const Dashboard = () => {
           </div>
         )}
         <div
-          className={`item w-11/12 mx-auto text-slate-950 p-2 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
+          className={`item w-11/12 mx-auto text-slate-500 font-semibold p-2 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
             !isOpen && "rounded-full w-fit"
           }`}
         >
           <span
-            className={`material-symbols-rounded mr-2 ${
-              !isOpen && "w-6 h-6 mr-0"
+            className={`material-symbols-rounded mr-2 text-md ${
+              !isOpen && "mr-0"
             }`}
           >
             medication
           </span>
           <p className={`${!isOpen && "hidden"}`}>Doctors</p>
+        </div>
+
+        <div
+          className={`w-11/12 mx-auto text-sm text-slate-400 font-semibold pb-2 ${
+            !isOpen && "flex justify-center"
+          }`}
+        >
+          PAYMENTS
+        </div>
+        <div
+          className={`item w-11/12 mx-auto text-slate-500 font-semibold p-2 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
+            !isOpen && "rounded-full w-fit"
+          }`}
+        >
+          <span
+            className={`material-symbols-rounded mr-2 text-md ${
+              !isOpen && "mr-0"
+            }`}
+          >
+            paid
+          </span>
+          <p className={`${!isOpen && "hidden"}`}>Taxes</p>
         </div>
         {/* sidebar items end */}
       </div>
@@ -153,22 +252,39 @@ const Dashboard = () => {
         } transition-all ease-in-out duration-300`}
       >
         <div
-          className={`sticky top-0 font-header text-3xl text-blue-900 font-semibold ${
+          className={`sticky top-0 flex justify-between items-center font-header${
             !isOpen && "w-full"
           } mb-5`}
         >
-          Dashboard
+          <div className=" text-3xl text-blue-900 font-semibold ">
+            Dashboard
+          </div>
+
+          <div className="flex justify items-center text-sm bg-slate-100 p-2 rounded-md">
+            <span className="material-symbols-rounded text-md text-slate-400 mr-1">
+              pending_actions
+            </span>
+            <p className="text-slate-400 mr-5">Time Period:</p>{" "}
+            <p className="text-blue-900 font-semibold mr-5">
+              December 14 - January 14, 2023
+            </p>
+            <span
+              className={`material-symbols-rounded mr-2 text-blue-900 ext-md`}
+            >
+              expand_more
+            </span>
+          </div>
         </div>
 
         {/* statistics value components  */}
         <div className="w-full flex justify-between space-x-4">
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-amber-50 space-y-1">
-            <div className="flex align-middle text-sm text-slate-400">
-              <span class="material-symbols-rounded pr-2">payments</span>
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+            <div className="flex items-center  text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
             </div>
             <div className="text-blue-900 text-3xl">524,000</div>
-            <div className="flex align-middle text-sm text-slate-400">
+            <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-1 text-green-500">
                 trending_up
               </span>
@@ -178,13 +294,13 @@ const Dashboard = () => {
           </div>
 
           {/* item 2 */}
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-indigo-50 space-y-1">
-            <div className="flex align-middle text-sm text-slate-400">
-              <span class="material-symbols-rounded pr-2">payments</span>
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+            <div className="flex items-center  text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
             </div>
             <div className="text-blue-900 text-3xl">524,000</div>
-            <div className="flex align-middle text-sm text-slate-400">
+            <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-1 text-green-500">
                 trending_up
               </span>
@@ -194,13 +310,13 @@ const Dashboard = () => {
           </div>
 
           {/* item 3 */}
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-lime-50 space-y-1">
-            <div className="flex align-middle text-sm text-slate-400">
-              <span class="material-symbols-rounded pr-2">payments</span>
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+            <div className="flex items-center text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
             </div>
             <div className="text-blue-900 text-3xl">524,000</div>
-            <div className="flex align-middle text-sm text-slate-400">
+            <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-1 text-green-500">
                 trending_up
               </span>
@@ -210,18 +326,38 @@ const Dashboard = () => {
           </div>
 
           {/* item 4 */}
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg bg-rose-50 space-y-1">
-            <div className="flex align-middle text-sm text-slate-400">
-              <span class="material-symbols-rounded pr-2">payments</span>
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+            <div className="flex items-center  text-sm text-slate-400">
+              <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
             </div>
             <div className="text-blue-900 text-3xl">524,000</div>
-            <div className="flex align-middle text-sm text-slate-400">
+            <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-1 text-green-500">
                 trending_up
               </span>
               <p className="text-green-500 pr-1">3.5% </p>
               <p> vs 3 weeks report</p>
+            </div>
+          </div>
+        </div>
+        <div className="w-full flex justify-between space-x-4 mt-5">
+          <div className="w-2/4 border border-slate-200 p-3 rounded-lg h-2/5">
+            <div className="text-md">Total Progress</div>
+            <div className="h-full">
+              <Line data={data} options={options} />
+            </div>
+          </div>
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg h-4/6">
+            <div className="text-md">Total Progress</div>
+            <div className="h-full">
+              <Doughnut data={Ddata} />
+            </div>
+          </div>
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg h-5/6">
+            <div className="text-md">Total Progress</div>
+            <div className="h-full">
+              <Line data={Ldata} options={options} />
             </div>
           </div>
         </div>
