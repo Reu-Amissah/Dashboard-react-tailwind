@@ -105,11 +105,11 @@ const Dashboard = () => {
 
   return (
     // sidebar navigation menu
-    <div className="w-full mx-auto h-96 flex">
+    <div className="w-full mx-auto flex">
       <div
         className={`side-bar w-1/5 h-screen font-header bg-slate-100 text-slate-950 space-y-1 ${
           !isOpen && "w-fit px-6"
-        } transition-all ease-in-out duration-300`}
+        } transition-all ease-in-out duration-300 overflow-y-hidden`}
       >
         {/* sidebar logo container */}
         <div
@@ -342,21 +342,29 @@ const Dashboard = () => {
           </div>
         </div>
         <div className="w-full flex justify-between space-x-4 mt-5">
-          <div className="w-2/4 border border-slate-200 p-3 rounded-lg h-2/5">
+          <div className="w-full border border-slate-200 p-3 rounded-lg h-96">
             <div className="text-md">Total Progress</div>
-            <div className="h-full">
+            <div className="h-full pb-3">
               <Line data={data} options={options} />
             </div>
           </div>
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg h-4/6">
+        </div>
+        <div className="w-full flex justify-between space-x-4 mt-5">
+          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72">
             <div className="text-md">Total Progress</div>
-            <div className="h-full">
+            <div className="h-full pb-3">
               <Doughnut data={Ddata} />
             </div>
           </div>
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg h-5/6">
+          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72">
             <div className="text-md">Total Progress</div>
-            <div className="h-full">
+            <div className="h-full pb-3">
+              <Line data={Ldata} options={options} />
+            </div>
+          </div>
+          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72">
+            <div className="text-md">Total Progress</div>
+            <div className="h-full pb-3">
               <Line data={Ldata} options={options} />
             </div>
           </div>
