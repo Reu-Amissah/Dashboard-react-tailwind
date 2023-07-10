@@ -116,14 +116,14 @@ const Dashboard = () => {
 
       {/* main page layout */}
       <div
-        className={`pages px-3 font-header ${
+        className={`pagesfont-header bg-slate-50 ${
           !isOpen ? "w-full ml-32" : "w-full ml-64"
         } transition-all ease-in-out duration-300`}
       >
-        <Navbar isOpen={isOpen}></Navbar>
+        <Navbar isOpen={isOpen} header={"Dashboard"}></Navbar>
         {/* statistics value components  */}
-        <div className="w-full flex justify-between space-x-4">
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+        <div className="w-full flex justify-between space-x-4 pt-3 px-3">
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1 bg-white">
             <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
@@ -139,7 +139,7 @@ const Dashboard = () => {
           </div>
 
           {/* item 2 */}
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1 bg-white">
             <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
@@ -155,7 +155,7 @@ const Dashboard = () => {
           </div>
 
           {/* item 3 */}
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1 bg-white">
             <div className="flex items-center text-sm text-slate-400">
               <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
@@ -171,7 +171,7 @@ const Dashboard = () => {
           </div>
 
           {/* item 4 */}
-          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1">
+          <div className="w-1/4 border border-slate-200 p-3 rounded-lg space-y-1 bg-white">
             <div className="flex items-center  text-sm text-slate-400">
               <span className="material-symbols-rounded pr-2">payments</span>
               <p>Transactions</p>
@@ -186,28 +186,28 @@ const Dashboard = () => {
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between space-x-4 mt-5">
-          <div className="w-full border border-slate-200 p-3 rounded-lg h-96">
+        <div className="w-full flex justify-between space-x-4 mt-5 px-3">
+          <div className="w-full border border-slate-200 p-3 rounded-lg h-96 bg-white">
             <div className="text-md">Total Progress</div>
             <div className="h-full pb-3">
               <Line data={data} options={options} />
             </div>
           </div>
         </div>
-        <div className="w-full flex justify-between space-x-4 mt-5">
-          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72">
+        <div className="w-full flex justify-between space-x-4 mt-5 px-3">
+          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72 bg-white">
             <div className="text-md">Total Progress</div>
             <div className="h-full pb-3 flex justify-center items-center">
               <Doughnut data={Ddata} />
             </div>
           </div>
-          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72">
+          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72 bg-white">
             <div className="text-md">Total Progress</div>
             <div className="h-full pb-3">
               <Line data={Ldata} options={options} />
             </div>
           </div>
-          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72">
+          <div className="w-1/3 border border-slate-200 p-3 rounded-lg h-72 bg-white">
             <div className="text-md">Total Progress</div>
             <div className="h-full pb-3">
               <Line data={Ldata} options={options} />

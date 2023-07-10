@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../assets/226411.png";
+import { Link } from "react-router-dom";
 
 const Sidebar = ({ isOpen, closeSidebar, handledropdown, isDropdownOpen }) => {
   return (
@@ -32,90 +33,103 @@ const Sidebar = ({ isOpen, closeSidebar, handledropdown, isDropdownOpen }) => {
         MENU
       </div>
       {/* sidebar menu items */}
-      <div
-        className={`item  bg-blue-100 p-2 border-l-4 border-blue-900 flex cursor-pointer ${
-          !isOpen && " rounded-none bg-inherit items-center justify-center"
-        }`}
-      >
-        <span
-          className={`material-symbols-rounded mr-2 text-amber-600 ext-md ${
-            !isOpen ? "mr-0" : "ml-2"
+      <Link to="/">
+        <div
+          className={`item  bg-blue-100 p-2 border-l-4 border-blue-900 flex cursor-pointer ${
+            !isOpen && " rounded-none bg-inherit items-center justify-center"
           }`}
         >
-          dashboard
-        </span>
-        <p
-          className={` text-blue-900 font-semibold text-md ${
-            !isOpen && "hidden"
-          }`}
-        >
-          Dashboard
-        </p>
-      </div>
+          <span
+            className={`material-symbols-rounded mr-2 text-amber-600 ext-md ${
+              !isOpen ? "mr-0" : "ml-2"
+            }`}
+          >
+            dashboard
+          </span>
+          <p
+            className={` text-blue-900 font-semibold text-md ${
+              !isOpen && "hidden"
+            }`}
+          >
+            Dashboard
+          </p>
+        </div>
+      </Link>
       <div
         className={`item w-11/12 mx-auto text-slate-500 font-semibold p-2 rounded-lg flex cursor-pointer hover:text-amber-600 ${
           !isOpen && "rounded-full w-fit"
         }`}
       >
-        <span
-          className={`material-symbols-rounded mr-2 text-md ${
-            !isOpen && "mr-0"
-          }`}
-        >
-          domain
-        </span>
+        <div className="block w-full transition-all ease-in duration-300">
+          <div className="flex w-full">
+            <span
+              className={`material-symbols-rounded mr-2 text-md ${
+                !isOpen && "mr-0"
+              }`}
+            >
+              domain
+            </span>
+            <div
+              className={`w-full flex justify-between align-middle  ${
+                !isOpen && "hidden"
+              }`}
+              onClick={handledropdown}
+            >
+              <p>Departments</p>
+              <span
+                className={`material-symbols-rounded ${
+                  isDropdownOpen && "rotate-180"
+                }`}
+              >
+                expand_more
+              </span>
+            </div>
+          </div>
+          <div>
+            {isDropdownOpen ? (
+              <div className="block mt-2 pl-8 bg-slate-100 transition ease-in duration-300">
+                <a
+                  href="_blank"
+                  className=" py-2 text-slate-900 hover:text-slate-950 flex"
+                >
+                  Option 1
+                </a>
+                <a
+                  href="_blank"
+                  className=" py-2 text-slate-900 hover:text-slate-950 flex"
+                >
+                  Option 2
+                </a>
+                <a
+                  href="_blank"
+                  className=" py-2 text-slate-900 hover:text-slate-950 flex"
+                >
+                  Option 3
+                </a>
+              </div>
+            ) : (
+              <div></div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <Link to="doctors">
         <div
-          className={`w-full flex justify-between align-middle  ${
-            !isOpen && "hidden"
+          className={`item w-11/12 mx-auto text-slate-500 font-semibold p-2 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
+            !isOpen && "rounded-full w-fit"
           }`}
-          onClick={handledropdown}
         >
-          <p>Departments</p>
           <span
-            className={`material-symbols-rounded ${
-              isDropdownOpen && "rotate-180"
+            className={`material-symbols-rounded mr-2 text-md ${
+              !isOpen && "mr-0"
             }`}
           >
-            expand_more
+            medication
           </span>
+          <p className={`${!isOpen && "hidden"}`}>Doctors</p>
         </div>
-      </div>
-      {isDropdownOpen && (
-        <div className="block mt-2 pl-14 bg-slate-100">
-          <a
-            href="_blank"
-            className=" py-2 text-slate-900 hover:text-slate-950 flex"
-          >
-            Option 1
-          </a>
-          <a
-            href="_blank"
-            className=" py-2 text-slate-900 hover:text-slate-950 flex"
-          >
-            Option 2
-          </a>
-          <a
-            href="_blank"
-            className=" py-2 text-slate-900 hover:text-slate-950 flex"
-          >
-            Option 3
-          </a>
-        </div>
-      )}
-      <div
-        className={`item w-11/12 mx-auto text-slate-500 font-semibold p-2 rounded-lg flex cursor-pointer hover:text-amber-600 transition delay-75 ease-in-out ${
-          !isOpen && "rounded-full w-fit"
-        }`}
-      >
-        <span
-          className={`material-symbols-rounded mr-2 text-md ${
-            !isOpen && "mr-0"
-          }`}
-        >
-          medication
-        </span>
-        <p className={`${!isOpen && "hidden"}`}>Doctors</p>
-      </div>
+      </Link>
 
       <div
         className={`w-11/12 mx-auto text-sm text-slate-400 font-semibold pb-2 ${

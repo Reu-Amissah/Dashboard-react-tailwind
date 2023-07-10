@@ -1,13 +1,13 @@
 import React from "react";
 
-const Navbar = (isOpen) => {
+const Navbar = ({ isOpen, header }) => {
   return (
     <div
-      className={`sticky top-0 bg-white flex justify-between items-center py-3 font-header${
+      className={`sticky top-0 bg-white flex justify-between items-center py-3 px-3 font-header${
         !isOpen && "w-full"
       }`}
     >
-      <div className=" text-3xl text-blue-900 font-semibold ">Dashboard</div>
+      <div className=" text-3xl text-blue-900 font-semibold ">{header}</div>
 
       <div className="flex justify items-center text-sm bg-slate-100 p-2 rounded-md">
         <span className="material-symbols-rounded text-md text-slate-400 mr-1">
